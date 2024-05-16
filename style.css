@@ -21,10 +21,47 @@ body{
 }
 
 .title{
-    font-size: 1.4em;
+    font-size: 1.5em;
     letter-spacing: 2px;
     color: white;
     text-align: center;
     margin-top: 50px;
     padding: 20px;
+}
+
+.description{
+    color: white    ;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    padding: 50px;
+}
+
+.sous_description{
+    font-size: 1em;
+    padding: 0px;
+}
+
+.decouvrir{
+    text-align: center;
+}
+
+.boutton{
+    width: 200px;
+	height: 50px;
+	margin-top: 75px;
+	border: none;
+	border-radius: 10px;
+	background-color: #c2deff;
+	letter-spacing: 2px;
+    font-size: 1.2em;
+	transition: 0.5s;
+}
+
+.boutton:hover{
+	transform: scale(1.2);
+	cursor: pointer;
+    background-color: black;
+    color: red;
 }
