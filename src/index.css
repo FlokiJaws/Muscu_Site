@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════
+   SAFE AREAS — iPhone notch / Dynamic Island / home indicator
+   ═══════════════════════════════════════════════ */
+:root {
+  --safe-top:    env(safe-area-inset-top,    0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left,   0px);
+  --safe-right:  env(safe-area-inset-right,  0px);
+  --nav-height:  64px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESET GLOBAL
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  /* Désactive double-tap zoom ET zoom pinch sur les boutons/inputs */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  /* Pas de sélection de texte accidentelle sur les boutons */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Permettre la sélection dans les inputs */
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* ═══════════════════════════════════════════════
+   LAYOUT ROOT — 100% écran, pas de scroll global
+   ═══════════════════════════════════════════════ */
+html {
+  height: 100%;
+  /* iOS PWA : évite le rebond en haut */
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #111111;
+}
+
+body {
+  height: 100%;
+  height: -webkit-fill-available; /* iOS fallback */
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #111111;
+  color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+  /* Améliore le rendu du texte sur iOS */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  height: 100%;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════
+   INPUTS — ≥ 16px obligatoire pour pas de zoom iOS
+   ═══════════════════════════════════════════════ */
+input, select, textarea {
+  font-size: 16px; /* iOS zoome si < 16px */
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0; /* reset iOS style */
+}
+
+/* Masquer les flèches sur input[type=number] */
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL AREAS — smooth scroll iOS natif
+   ═══════════════════════════════════════════════ */
+.scroll-area {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* Cache la scrollbar (keep iOS-feel) */
+.scroll-area::-webkit-scrollbar { display: none; }
+.scroll-area { scrollbar-width: none; }
+
+/* ═══════════════════════════════════════════════
+   SAFE AREA UTILITIES
+   ═══════════════════════════════════════════════ */
+.pt-safe  { padding-top:    var(--safe-top);    }
+.pb-safe  { padding-bottom: var(--safe-bottom); }
+.pl-safe  { padding-left:   var(--safe-left);   }
+.pr-safe  { padding-right:  var(--safe-right);  }
+
+/* Espace pour dépasser sous la nav + home indicator */
+.pb-nav   { padding-bottom: calc(var(--nav-height) + var(--safe-bottom) + 8px); }
+
+/* Header qui commence sous le Dynamic Island */
+.pt-header { padding-top: calc(var(--safe-top) + 12px); }
+
+/* ═══════════════════════════════════════════════
+   BOTTOM NAV
+   ═══════════════════════════════════════════════ */
+.bottom-nav {
+  height: calc(var(--nav-height) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════ */
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.animate-slide-up   { animation: slide-up  0.3s cubic-bezier(0.32, 0.72, 0, 1); }
+.animate-fade-in    { animation: fade-in   0.2s ease-out; }
+.animate-scale-in   { animation: scale-in  0.2s ease-out; }
+
+/* ═══════════════════════════════════════════════
+   BOUTONS — feedback tactile amélioré
+   ═══════════════════════════════════════════════ */
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Active state sur tous les boutons */
+button:active {
+  opacity: 0.85;
+}
+
+/* ═══════════════════════════════════════════════
+   FOCUS — pas de ring bleu iOS
+   ═══════════════════════════════════════════════ */
+*:focus { outline: none; }
+*:focus-visible { outline: 2px solid #22c55e; outline-offset: 2px; }
