@@ -209,7 +209,7 @@ export default function LiveWorkout() {
       </div>
 
       {/* ── Scrollable content ── */}
-      <div className="flex-1 scroll-area px-4 pb-nav">
+      <div className="flex-1 min-h-0 scroll-area px-4 pb-nav">
 
         {/* ── Exercice header ── */}
         <div className="mt-5 mb-4">

@@ -6,7 +6,7 @@ export default function HistoryTab() {
   const { workoutHistory } = useAppStore()
 
   return (
-    <div className="h-full scroll-area pb-nav pt-safe">
+    <div className="flex-1 min-h-0 scroll-area pb-nav pt-safe">
       <div className="px-4 pt-5">
         <h1 className="text-2xl font-bold text-white mb-5">Historique</h1>
 

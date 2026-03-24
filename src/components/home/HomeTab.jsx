@@ -11,7 +11,7 @@ export default function HomeTab({ onTabChange }) {
   const lastSession = workoutHistory[0]
 
   return (
-    <div className="h-full scroll-area pb-nav pt-safe">
+    <div className="flex-1 min-h-0 scroll-area pb-nav pt-safe">
       <div className="px-4 pt-5">
 
         {/* Header */}

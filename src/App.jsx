@@ -66,8 +66,8 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#111111] text-white">
-      <main className="flex-1 overflow-hidden">
+    <div className="flex flex-col flex-1 bg-[#111111] text-white">
+      <main className="flex-1 min-h-0 overflow-hidden flex flex-col">
         {activeTab === 'home'      && <HomeTab onTabChange={setActiveTab} />}
         {activeTab === 'exercises' && <ExercisesTab />}
         {activeTab === 'history'   && <HistoryTab />}

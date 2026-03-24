@@ -93,6 +93,7 @@ input[type='number']::-webkit-outer-spin-button {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
+  min-height: 0;
 }
 
 /* Cache la scrollbar (keep iOS-feel) */
