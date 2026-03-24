@@ -8,7 +8,8 @@ import ExercisesTab from './components/exercises/ExercisesTab'
 import HistoryTab from './components/history/HistoryTab'
 import LiveWorkout from './components/workout/LiveWorkout'
 import { useState } from 'react'
-import { Dumbbell, Loader2 } from 'lucide-react'
+import { Dumbbell, Loader2 } from 'lucide-react' 
+
 
 export default function App() {
   const { user, loading: authLoading } = useAuth()
