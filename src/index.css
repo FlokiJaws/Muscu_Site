@@ -92,7 +92,7 @@ input[type='number']::-webkit-outer-spin-button {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  overscroll-behavior-y: none;
   min-height: 0;
 }
 
