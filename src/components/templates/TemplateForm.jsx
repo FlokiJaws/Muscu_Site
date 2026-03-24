@@ -90,10 +90,10 @@ export default function TemplateForm({ initial, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/80 z-40 flex items-end">
-      <div className="w-full bg-[#1a1a1a] rounded-t-3xl max-h-[92vh] flex flex-col animate-slide-up">
+      <div className="w-full bg-[#141414] rounded-t-3xl max-h-[92vh] flex flex-col animate-slide-up">
 
         {/* Header */}
-        <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-[#2a2a2a]">
+        <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-white/[0.06]">
           <h2 className="text-lg font-bold text-white">
             {initial ? 'Modifier la routine' : 'Nouvelle routine'}
           </h2>
@@ -110,7 +110,7 @@ export default function TemplateForm({ initial, onClose }) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Push A, Full Body…"
-              className="w-full bg-[#111111] text-white rounded-xl px-4 py-3 border border-[#2a2a2a] focus:border-green-500 focus:outline-none"
+              className="w-full bg-[#0d0d0d] text-white rounded-xl px-4 py-3 border border-white/[0.06] focus:border-green-500 focus:outline-none"
             />
           </div>
 
@@ -142,7 +142,7 @@ export default function TemplateForm({ initial, onClose }) {
 
             <div className="space-y-3">
               {items.map((item) => (
-                <div key={item._id} className="bg-[#111111] rounded-2xl p-3 border border-[#2a2a2a]">
+                <div key={item._id} className="bg-[#0d0d0d] rounded-2xl p-3 border border-white/[0.06]">
                   <div className="flex items-center justify-between mb-3">
                     <div>
                       <p className="text-sm font-semibold text-white">{item.exerciseName}</p>
@@ -165,7 +165,7 @@ export default function TemplateForm({ initial, onClose }) {
                           inputMode={type === 'number' ? 'numeric' : 'text'}
                           value={item[field]}
                           onChange={(e) => updateItem(item._id, field, type === 'number' ? Number(e.target.value) : e.target.value)}
-                          className="w-full bg-[#1a1a1a] text-white text-center rounded-xl py-2 text-sm border border-[#2a2a2a] focus:border-green-500 focus:outline-none"
+                          className="w-full bg-[#141414] text-white text-center rounded-xl py-2 text-sm border border-white/[0.06] focus:border-green-500 focus:outline-none"
                         />
                       </div>
                     ))}
@@ -177,7 +177,7 @@ export default function TemplateForm({ initial, onClose }) {
                       value={item.targetWeight ?? ''}
                       placeholder="—"
                       onChange={(e) => updateItem(item._id, 'targetWeight', e.target.value ? Number(e.target.value) : null)}
-                      className="w-full bg-[#1a1a1a] text-white text-center rounded-xl py-2 text-sm border border-[#2a2a2a] focus:border-green-500 focus:outline-none"
+                      className="w-full bg-[#141414] text-white text-center rounded-xl py-2 text-sm border border-white/[0.06] focus:border-green-500 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -186,9 +186,9 @@ export default function TemplateForm({ initial, onClose }) {
 
             {/* Picker exercices */}
             {showPicker ? (
-              <div className="mt-3 bg-[#111111] rounded-2xl border border-[#2a2a2a] overflow-hidden">
+              <div className="mt-3 bg-[#0d0d0d] rounded-2xl border border-white/[0.06] overflow-hidden">
                 {/* Recherche */}
-                <div className="p-3 border-b border-[#2a2a2a]">
+                <div className="p-3 border-b border-white/[0.06]">
                   <div className="relative mb-2">
                     <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" />
                     <input
@@ -196,7 +196,7 @@ export default function TemplateForm({ initial, onClose }) {
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                       placeholder="Rechercher un exercice…"
-                      className="w-full bg-[#1a1a1a] text-white pl-8 pr-3 py-2 text-sm rounded-xl border border-[#2a2a2a] focus:border-green-500 focus:outline-none"
+                      className="w-full bg-[#141414] text-white pl-8 pr-3 py-2 text-sm rounded-xl border border-white/[0.06] focus:border-green-500 focus:outline-none"
                     />
                   </div>
                   {/* Filtre muscle */}
@@ -225,7 +225,7 @@ export default function TemplateForm({ initial, onClose }) {
                       <button
                         key={ex.id}
                         onClick={() => addExToTemplate(ex)}
-                        className="w-full flex items-center justify-between px-4 py-3 text-left border-b border-[#2a2a2a] last:border-0 active:bg-[#2a2a2a]"
+                        className="w-full flex items-center justify-between px-4 py-3 text-left border-b border-white/[0.06] last:border-0 active:bg-[#2a2a2a]"
                       >
                         <div>
                           <p className="text-sm text-white font-medium">{ex.name_fr}</p>
@@ -237,14 +237,14 @@ export default function TemplateForm({ initial, onClose }) {
                   )}
                 </div>
 
-                <button onClick={() => setShowPicker(false)} className="w-full py-3 text-zinc-500 text-sm border-t border-[#2a2a2a]">
+                <button onClick={() => setShowPicker(false)} className="w-full py-3 text-zinc-500 text-sm border-t border-white/[0.06]">
                   Fermer
                 </button>
               </div>
             ) : (
               <button
                 onClick={() => setShowPicker(true)}
-                className="mt-3 w-full border border-dashed border-[#2a2a2a] text-zinc-500 rounded-2xl py-4 flex items-center justify-center gap-2 text-sm active:border-green-500 active:text-green-400 transition-colors"
+                className="mt-3 w-full border border-dashed border-white/[0.06] text-zinc-500 rounded-2xl py-4 flex items-center justify-center gap-2 text-sm active:border-green-500 active:text-green-400 transition-colors"
               >
                 <Plus size={18} />
                 Ajouter un exercice
@@ -254,7 +254,7 @@ export default function TemplateForm({ initial, onClose }) {
         </div>
 
         {/* Bouton sauvegarde */}
-        <div className="px-5 py-4 border-t border-[#2a2a2a] pb-safe">
+        <div className="px-5 py-4 border-t border-white/[0.06] pb-safe">
           <button
             onClick={handleSave}
             disabled={!name.trim() || items.length === 0 || saving}

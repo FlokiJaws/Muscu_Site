@@ -24,7 +24,7 @@ export default function App() {
   // ── Splash de chargement auth ──
   if (authLoading) {
     return (
-      <div className="fixed inset-0 bg-[#111111] flex items-center justify-center">
+      <div className="fixed inset-0 bg-[#0d0d0d] flex items-center justify-center">
         <Loader2 size={32} className="text-green-400 animate-spin" />
       </div>
     )
@@ -38,7 +38,7 @@ export default function App() {
   // ── Chargement des données Supabase ──
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-[#111111] flex flex-col items-center justify-center gap-3">
+      <div className="fixed inset-0 bg-[#0d0d0d] flex flex-col items-center justify-center gap-3">
         <Dumbbell size={40} className="text-green-400" />
         <p className="text-zinc-500 text-sm">Chargement de tes données…</p>
       </div>
@@ -48,7 +48,7 @@ export default function App() {
   // ── Erreur de chargement ──
   if (error) {
     return (
-      <div className="fixed inset-0 bg-[#111111] flex flex-col items-center justify-center gap-4 px-6">
+      <div className="fixed inset-0 bg-[#0d0d0d] flex flex-col items-center justify-center gap-4 px-6">
         <p className="text-red-400 font-bold text-center">Erreur de connexion</p>
         <p className="text-zinc-500 text-sm text-center font-mono break-all">{error}</p>
         <button
@@ -67,7 +67,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col flex-1 overflow-hidden bg-[#111111] text-white">
+    <div className="flex flex-col flex-1 overflow-hidden bg-[#0d0d0d] text-white">
       <main className="flex-1 min-h-0 overflow-hidden flex flex-col">
         {activeTab === 'home'      && <HomeTab onTabChange={setActiveTab} />}
         {activeTab === 'exercises' && <ExercisesTab />}

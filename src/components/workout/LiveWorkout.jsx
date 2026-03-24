@@ -21,7 +21,7 @@ function RestTimer({ seconds, onDone }) {
   const secs = String(timeLeft % 60).padStart(2, '0')
 
   return (
-    <div className="fixed inset-0 bg-[#111111]/95 backdrop-blur-sm flex flex-col items-center justify-center z-50 animate-slide-up">
+    <div className="fixed inset-0 bg-[#0d0d0d]/95 backdrop-blur-sm flex flex-col items-center justify-center z-50 animate-slide-up">
       <p className="text-zinc-400 text-sm font-medium mb-6 tracking-widest uppercase">
         Temps de repos
       </p>
@@ -72,7 +72,7 @@ function NumericInput({ label, value, onChange, unit, step = 1, min = 0 }) {
           onChange={(e) => onChange(e.target.value)}
           min={min}
           step={step}
-          className="w-full text-center text-4xl font-bold bg-[#1e1e1e] text-white rounded-2xl py-5 border border-[#2a2a2a] focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all"
+          className="w-full text-center text-4xl font-bold bg-[#1e1e1e] text-white rounded-2xl py-5 border border-white/[0.06] focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all"
         />
         {unit && (
           <span className="absolute bottom-2 right-3 text-xs text-zinc-500">{unit}</span>
@@ -177,9 +177,9 @@ export default function LiveWorkout() {
   }, [activeWorkout.startedAt]) // eslint-disable-line
 
   return (
-    <div className="fixed inset-0 bg-[#111111] flex flex-col pt-safe">
+    <div className="fixed inset-0 bg-[#0d0d0d] flex flex-col pt-safe">
       {/* ── Header ── */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#2a2a2a]">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
         <button
           onClick={() => setShowFinishConfirm(true)}
           className="text-zinc-500 active:text-white transition-colors p-1"
@@ -240,7 +240,7 @@ export default function LiveWorkout() {
 
         {/* ── Séries déjà faites ── */}
         {exercise.completedSets.length > 0 && (
-          <div className="mb-4 bg-[#1a1a1a] rounded-2xl p-3 space-y-2">
+          <div className="mb-4 bg-[#141414] rounded-2xl p-3 space-y-2">
             {exercise.completedSets.map((s, i) => (
               <SetCard
                 key={i}
@@ -254,7 +254,7 @@ export default function LiveWorkout() {
         )}
 
         {/* ── Série en cours ── */}
-        <div className="bg-[#1a1a1a] rounded-2xl p-4 mb-4 border border-[#2a2a2a]">
+        <div className="bg-[#141414] rounded-2xl p-4 mb-4 border border-white/[0.06]">
           {/* Badge série */}
           <div className="flex items-center justify-between mb-4">
             <span className="bg-green-500/15 text-green-400 text-xs font-semibold px-3 py-1 rounded-full">
@@ -315,7 +315,7 @@ export default function LiveWorkout() {
             {exercises.slice(currentExerciseIndex + 1, currentExerciseIndex + 3).map((ex, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 bg-[#1a1a1a] rounded-xl p-3 mb-2"
+                className="flex items-center gap-3 bg-[#141414] rounded-xl p-3 mb-2"
               >
                 <div className="w-1.5 h-8 rounded-full bg-[#2a2a2a]" />
                 <div>
@@ -339,7 +339,7 @@ export default function LiveWorkout() {
       {/* ── Confirm cancel dialog ── */}
       {showFinishConfirm && (
         <div className="fixed inset-0 bg-black/80 flex items-end z-50 pb-safe">
-          <div className="w-full bg-[#1a1a1a] rounded-t-3xl p-6 animate-slide-up">
+          <div className="w-full bg-[#141414] rounded-t-3xl p-6 animate-slide-up">
             <h3 className="text-lg font-bold text-white text-center mb-1">
               Terminer la séance ?
             </h3>
